@@ -1,0 +1,2 @@
+#!/bin/bash
+yt-dlp -f bestaudio -x --audio-format mp3 --audio-quality 0 -o "$1.%(ext)s" "$2"
