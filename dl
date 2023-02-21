@@ -1,2 +1,18 @@
 #!/bin/bash
-yt-dlp -f bestaudio -x --audio-format mp3 --audio-quality 0 -o "$1.%(ext)s" "$2"
+if [ ! -d "converted" ]; then
+    mkdir converted
+fi
+
+if [ ! -d "sounds" ]; then
+    mkdir sounds
+fi
+
+yt-dlp -f bestaudio -x --audio-format mp3 --audio-quality 0 -o "$1.%(ext)s" "$3"
+
+ffmpeg -loglevel error -i $1.mp3 -f s16le -ar 48000 -ac 2 pipe:1 | dca > $1.dca
+mv $1.mp3 converted/
+mv $1.dca sounds/
+echo "----"
+echo "Add this line to the main function: "
+echo "add_track(\"$1\", \"$1.dca\", \"$2\")"
+echo "----"
