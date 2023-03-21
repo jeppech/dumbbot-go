@@ -72,6 +72,9 @@ func main() {
 	add_track("havremaelk", "havremaelk.dca", "du burde skydes")
 	add_track("wc", "wc.dca", "det svineri vil jeg ikk ha")
 	add_track("gayyy", "gayyy.dca", "hah gayyyyyy")
+	add_track("draaar", "draaar.dca", "draar")
+	add_track("madras", "madras.dca", "Det er jo min madras")
+	add_track("sove", "sove.dca", "Skal jeg sove på væggen?")
 
 	// Register ready as a callback for the ready events.
 	dg.AddHandler(ready)
